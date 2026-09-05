@@ -66,6 +66,22 @@ usage: main.py [-h] --symbol SYMBOL
 main.py: error: the following arguments are required: --symbol
 ```
 
+## Error Handling
+
+The application catches common failure cases and exits cleanly instead of dumping a raw Python traceback:
+
+- **No internet / API unreachable** — prints a network error message and exits with status code 1
+- **API request times out** — prints a timeout message and exits with status code 1
+- **Database unreachable** (wrong credentials, container not running) — prints a database error message and exits with status code 1
+
+Example:
+```bash
+uv run python main.py --symbol BTCUSDT
+Network ERROR: Unable to connect to the API. Please check your internet connection.
+```
+
+Every failure path exits with a non-zero status code, so the application can be used safely inside a scheduler or CI pipeline.
+
 ## Project Structure
 
 crypto_rate_ETL/
