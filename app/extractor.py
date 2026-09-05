@@ -8,7 +8,7 @@ def get_usd_kes_rate():
     """
     frank_url="https://api.frankfurter.dev/v2/rates?base=USD&quotes=KES"
     frank_res=requests.get(frank_url)
-    frank_data=frank_res.json()  #
+    frank_data=frank_res.json()  
     rate=frank_data[0]
     usdksh_rate=rate['rate']
     return usdksh_rate

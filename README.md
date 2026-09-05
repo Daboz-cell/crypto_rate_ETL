@@ -49,6 +49,23 @@ DB_PORT=5433
 
    This starts a PostgreSQL container and the ETL app container. The app fetches, converts, stores, and prints the report, then exits.
 
+## Usage
+
+Run with one or more symbols via the `--symbol` flag (comma-separated for multiple):
+
+```bash
+docker compose run --rm app --symbol BTCUSDT
+docker compose run --rm app --symbol BTCUSDT,ETHUSDT,SOLUSDT
+```
+
+Running without `--symbol` prints usage instructions instead of crashing:
+
+```bash
+docker compose run --rm app
+usage: main.py [-h] --symbol SYMBOL
+main.py: error: the following arguments are required: --symbol
+```
+
 ## Project Structure
 
 crypto_rate_ETL/

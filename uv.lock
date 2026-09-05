@@ -339,7 +339,7 @@ wheels = [
 [[package]]
 name = "crypto-rate-etl"
 version = "0.1.0"
-source = { editable = "." }
+source = { virtual = "." }
 dependencies = [
     { name = "psycopg2-binary" },
     { name = "python-dotenv" },
